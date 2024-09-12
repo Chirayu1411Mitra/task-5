@@ -1,0 +1,170 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class = "navbar" id="header" >
+        <div class="logo">
+            <img src="logo.png" height="85" width="100" alt="logo">
+        </div>
+        <div class="title">
+            <h1>Swastik Technology</h1>
+        </div>
+        <div class="tabs" id="tabs">
+           <div class="tab"><a href="./index.html">Home</a></div>
+           <div class="tab"><a href="#">My Tasks</a></div>
+           <div class="tab"><a href="#">Contact Us</a></div>  
+        </div>
+    </div>
+
+    <div class="info">
+        <div class="profilePhoto">
+            <img src="profile1.jpg" alt="DP">
+        </div>
+        <div class="name">
+            <p>NAME: Jhon</p>
+        </div>
+        <div class="Serial">
+            <p>EMOLOYEE NO. : 2310991558</p>
+        </div>
+    </div>
+    <div class="Cards C1">
+        <div class="Cards c2">
+            <div class="Cards c3">
+                <div class="card C4">
+                    <div class="Cards">
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="Cards c3">
+                <div class="card C4">
+                    <div class="Cards">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TechFlow Inc. - Task Manager</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="login-page" id="loginPage">
+    <div class="logo-container">
+      <img src="https://via.placeholder.com/150" alt="TechFlow Inc." class="logo">
+      <h1>Welcome to TechFlow Task Manager</h1>
+    </div>
+    <div class="login-container">
+      <h2>Login</h2>
+      <input type="text" id="username" placeholder="Enter Username" required>
+      <input type="password" id="password" placeholder="Enter Password" required>
+      <button onclick="login()">Login</button>
+      <div id="errorMessage" class="error-message"></div>
+    </div>
+  </div>
+
+  <div class="dashboard-page" id="adminDashboard">
+    <h2>Admin Dashboard</h2>
+    <button onclick="logout()">Logout</button>
+    <div class="task-section">
+      <h3>Manage Tasks</h3>
+      <input type="text" id="newTask" placeholder="New Task">
+      <button onclick="addTask()">Add Task</button>
+      <ul id="taskList"></ul>
+    </div>
+  </div>
+
+  <div class="dashboard-page" id="employeeDashboard">
+    <h2>Employee Dashboard</h2>
+    <button onclick="logout()">Logout</button>
+    <div class="task-section">
+      <h3>Your Tasks</h3>
+      <ul id="employeeTaskList"></ul>
+    </div>
+  </div>
+
+  <script>
+    // Simulating Local Database with User Information
+const users = [
+  { username: "admin", password: "admin123", role: "admin" },
+  { username: "employee", password: "employee123", role: "employee" }
+];
+
+// Display login page by default
+document.getElementById('loginPage').style.display = 'block';
+
+// Function to handle login
+function login() {
+  const username = document.getElementById('username').value;
+  const password = document.getElementById('password').value;
+  const user = users.find(u => u.username === username && u.password === password);
+  
+  if (user) {
+    document.getElementById('loginPage').style.display = 'none';
+    if (user.role === 'admin') {
+      document.getElementById('adminDashboard').style.display = 'block';
+    } else {
+      document.getElementById('employeeDashboard').style.display = 'block';
+      loadEmployeeTasks();
+    }
+  } else {
+    document.getElementById('errorMessage').innerText = "Invalid credentials. Please try again.";
+  }
+}
+
+// Function to logout
+function logout() {
+  document.getElementById('loginPage').style.display = 'block';
+  document.getElementById('adminDashboard').style.display = 'none';
+  document.getElementById('employeeDashboard').style.display = 'none';
+}
+
+// Task Management for Admin
+let tasks = [];
+
+function addTask() {
+  const task = document.getElementById('newTask').value;
+  if (task) {
+    tasks.push(task);
+    document.getElementById('newTask').value = '';
+    displayTasks();
+    saveTasks();
+  }
+}
+
+function displayTasks() {
+  const taskList = document.getElementById('taskList');
+  taskList.innerHTML = '';
+  tasks.forEach((task, index) => {
+    taskList.innerHTML += `<li>${task}</li>`;
+  });
+}
+
+function saveTasks() {
+  localStorage.setItem('tasks', JSON.stringify(tasks));
+}
+
+function loadEmployeeTasks() {
+  tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+  const employeeTaskList = document.getElementById('employeeTaskList');
+  employeeTaskList.innerHTML = '';
+  tasks.forEach(task => {
+    employeeTaskList.innerHTML += `<li>${task}</li>`;
+  });
+}
+
+  </script>
+</body>
+</html>
