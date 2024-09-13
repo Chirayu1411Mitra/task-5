@@ -1,249 +1,129 @@
-/* Navbar styling remains the same
-.navbar {
-    background-color: rgb(255, 255, 255);
-    display: flex;
-    justify-content: space-between; 
-    align-items: center;
-    width: 100%;
-    height: 86px;
-    position: fixed;
-    top: 0;
-    padding: 0 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    z-index: 10;
-}
-
-.navbar .logo img {
-    height: 85px;
-    width: 100px;
-}
-.navbar .title h1 {
-    font-size: 24px;
-    font-family: "Roboto Mono", monospace;
-    color: #000;
-}
-.navbar .tabs {
-    display: flex;
-    gap: 15px;
-}
-
-.navbar .tabs .tab a {
-    text-decoration: none;
-    color: rgb(31, 31, 31);
-    font-size: 18px;
-    transition: color 0.3s;
-}
-
-.navbar .tabs .tab a:hover {
-    color: #007bff;
-}
-.Cards.C1 {
-    display: flex;
-    justify-content: flex-start; 
-    align-items: flex-start;
-    flex-wrap: wrap;
-    gap: 20px;
-    padding: 20px;
-    margin-top: 120px; 
-    width: 60%; 
-    margin-left: 20px; 
-}
-
-.Cards.c2 {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.Cards.c3 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.card.C4 {
-    background-color: #9a2f2f;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
-    padding: 20px;
-    width: 250px; 
-    text-align: center;
-    color: white;
-}
-
-.card.C4:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-.card.C4 button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 15px;
-    font-size: 14px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.card.C4 button:hover {
-    background-color: #0056b3;
-}
-.info {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    position: absolute;
-    right: 20px;
-    top: 120px; 
-}
-
-.info .profilePhoto img {
-    height: 100px;
-    width: 100px;
-    border-radius: 50%;
-    border: 2px solid #007bff;
-}
-
-.info .name, .info .Serial {
-    font-family: "Roboto Mono", monospace;
-    color: #333;
-    margin-top: 10px;
-}
-
-@media (max-width: 768px) {
-    .Cards.C1 {
-        width: 100%;
-        margin-left: 0;
-        justify-content: center;
-    }
-
-    .info {
-        position: static;
-        margin-top: 20px;
-        align-items: center;
-    }
-
-    .navbar .title h1 {
-        font-size: 20px;
-    }
-
-    .navbar .tabs {
-        flex-direction: column;
-        gap: 10px;
-    }
-} */
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
+    box-sizing: border-box;
   }
-  
   body {
-    background-color: #f4f4f9;
+    background: url('img/Rick_and_Morty-Run_for_Jewels-vector_graphics-car-rainbows.jpg') no-repeat center;
+    background-size: cover;
+    font-family: sans-serif;
+  }
+  .login-wrapper {
+    height: 100vh;
+    width: 100vw;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
   }
-  
-  .login-page, .dashboard-page {
-    display: none;
-  }
-  
-  .logo-container {
-    text-align: center;
-  }
-  
-  .logo {
-    width: 100px;
-  }
-  
-  .login-container {
-    width: 300px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #fff;
+  .form {
+    position: relative;
+    width: 100%;
+    max-width: 380px;
+    padding: 80px 40px 40px;
+    background: rgba(0,0,0,0.7);
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    color: #fff;
+    box-shadow: 0 15px 25px rgba(0,0,0,0.5);
   }
-  
-  .login-container h2 {
-    margin-bottom: 20px;
+  .form::before {
+    content:'';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background: rgba(255,255,255, 0.08);
+    transform: skewX(-26deg);
+    transform-origin: bottom left;
+    border-radius: 10px;
+    pointer-events: none;
   }
-  
-  .login-container input {
+  .form img {
+    position: absolute;
+    top: -50px;
+    left: calc(50% - 50px);
+    width: 100px;
+    background: rgba(255,255,255, 0.8);
+    border-radius: 50%;
+  }
+  .form h2 {
+    text-align: center;
+    letter-spacing: 1px;
+    margin-bottom: 2rem;
+    color: #ff652f;
+  }
+  .form .input-group {
+    position: relative;
+  }
+  .form .input-group input {
     width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  .login-container button {
-    width: 100%;
-    padding: 10px;
-    background-color: #0056b3;
-    color: white;
+    padding: 10px 0;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
     border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background-color: transparent;
+    color: inherit;
+  }
+  .form .input-group label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 1rem;
+    pointer-events: none;
+    transition: .3s ease-out;
+  }
+  .form .input-group input:focus + label,
+  .form .input-group input:valid + label {
+    transform: translateY(-18px);
+    color: #ff652f;
+    font-size: .8rem;
+  }
+  .submit-btn {
+    display: block;
+    margin-left: auto;
+    border: none;
+    outline: none;
+    background: #ff652f;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
   }
-  
-  .login-container button:hover {
-    background-color: #003f7f;
+  .forgot-pw {
+    color: inherit;
   }
   
-  .error-message {
-    color: red;
-    margin-top: 10px;
-    text-align: center;
+  #forgot-pw {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 0;
+    z-index: 1;
+    background: url('img/rick_and_morty_wearing_sunglasses.jpg') no-repeat center;
+    opacity: 0;
+    transition: 0.6s;
   }
-  
-  .dashboard-page {
-    text-align: center;
+  #forgot-pw:target {
+    height: 100%;
+    opacity: 1;
   }
-  
-  .dashboard-page h2 {
-    margin-top: 20px;
-  }
-  
-  .task-section {
-    margin: 20px auto;
-    width: 300px;
-  }
-  
-  .task-section input {
-    width: 70%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  .task-section button {
-    padding: 10px;
-    background-color: #28a745;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .task-section button:hover {
-    background-color: #218838;
-  }
-  
-  ul {
-    list-style-type: none;
-    margin-top: 20px;
-  }
-  
-  li {
-    background-color: #f1f1f1;
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 5px;
+  .close {
+    position: absolute;
+    right: 1.5rem;
+    top: 0.5rem;
+    font-size: 2rem;
+    font-weight: 900;
+    text-decoration: none;
+    color: inherit;
   }
   
