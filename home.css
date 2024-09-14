@@ -106,6 +106,12 @@
   top: 180px;
   position: absolute;
 }
+.profile .info{
+  position: absolute;
+  top: 534px;
+  margin-left: 950px;
+}
+
 
 ul {
   display: flex;
@@ -133,7 +139,8 @@ li {
   }
 }
 .calendar {
-  margin-top: 20px;
+  margin-top: 126px;
+  position: absolute;
 }
 
 .calendar table {
